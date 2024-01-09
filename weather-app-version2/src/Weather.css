@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;1,300&display=swap');
+
+.Weather {
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto;
+    border: 1px solid rgb(207, 203, 203);
+    border-radius: 6px;
+    background: radial-gradient(592px at 48.2% 50%, rgba(255, 255, 249, 0.6) 0%, rgb(160, 199, 254) 74.6%);
+}
+.Weather form {
+    margin: 20px;
+}
+.Weather p {
+    color: grey;
+}
+.Weather h1 {
+    font-size: 56px;
+}
