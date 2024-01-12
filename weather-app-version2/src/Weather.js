@@ -6,7 +6,7 @@ import WeatherInfo from "./WeatherInfo";
 export default function Weather(props) {
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState({});
-  const [city, setCity] = useState(props.city)
+  const [city, setCity] = useState(props.city);
 
   function handleResponse(response) {
     setWeatherData({
@@ -16,30 +16,28 @@ export default function Weather(props) {
       city: response.data.name,
       description: response.data.weather[0].description,
       date: new Date(response.data.dt * 1000),
-      icon: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
     console.log(response.data);
     setReady(true);
   }
 
-function search(){
-const apiKey = "50fa4024e3b1d5eac2f51ab18a47e997";
-const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}
+  function search() {
+    const apiKey = "50fa4024e3b1d5eac2f51ab18a47e997";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}
     &appid=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(handleResponse);
-}
+    axios.get(apiUrl).then(handleResponse);
+  }
 
-  function handleSubmit(event){
+  function handleSubmit(event) {
     event.preventDefault();
     search();
-
   }
 
-  function handleCity(event){
-    setCity(event.target.value)
+  function handleCity(event) {
+    setCity(event.target.value);
   }
-
 
   if (ready) {
     return (
